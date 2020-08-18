@@ -11,6 +11,10 @@ class DatabasePersistence
     @logger = logger
   end
 
+  def disconnect
+    @db.close
+  end
+
   def find_list(id)
     sql = 'SELECT * FROM lists WHERE id = $1;'
     result = query(sql, id)
